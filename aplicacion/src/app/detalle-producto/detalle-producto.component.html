@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Detalle</h1>
+<div mat-dialog-content>
+    <!-- BANNER -->
+    <div *ngIf="arrayImagenes.length > 0" style="text-align:center;margin:1%; padding:1%;">
+        <app-banner-component [entrada]="arrayImagenes" [imageSize]="{width: '50%', height: 200}">
+        </app-banner-component>
+    </div>
+    <!-- CARACTERISTICAS -->
+    <div *ngIf="caracteristicas">
+        <p *ngFor="let caracteristica of caracteristicas; let i = index">
+            <b *ngIf="caracteristica.important">{{caracteristica.text}}</b>
+            <span *ngIf="!caracteristica.important">{{caracteristica.text}}</span>
+        </p>
+    </div>
+</div>

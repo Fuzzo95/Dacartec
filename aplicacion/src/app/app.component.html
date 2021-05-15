@@ -1,0 +1,26 @@
+<!-- BANNER -->
+<div *ngIf="arrayImagenes.length > 0" style="text-align:center;margin:1%; padding:1%;">
+    <app-banner-component [entrada]="arrayImagenes" [imageSize]="{width: '33%', height: 200}"></app-banner-component>
+</div>
+<!-- TITULO / BUSCADOR / MULTISELECT CATEGORIAS -->
+<div style="margin-bottom: 5%;">
+        <span style="margin-left: 10%;">Productos</span>
+        <input style="margin-left: 30%;" type="text" [ngModel]="textoBusqueda" (change)="onBuscar()">
+</div>
+
+<!-- PRODUCTOS Y CLAIMS -->
+<div *ngIf="entrada1" style="justify-content: center;">
+    <div #productos *ngFor="let producto of entrada1.products; let i = index"
+        style="height: 300px;width: 300px; float:left; margin-left: 10%;margin-top: auto;">
+        <app-producto [producto]=" producto" [url]=urlDetalles[i]>
+        </app-producto>
+    </div>
+    <div style="margin-bottom: 5%;">
+        <span style="margin-left: 10%;">Claims</span>
+    </div>
+    <div *ngFor="let claim of entrada1.claims"
+        style="height: 300px;width: 300px; float:left; margin-left: 10%; margin-top: 20%;">
+        <app-producto [claim]=" claim">
+        </app-producto>
+    </div>
+</div>

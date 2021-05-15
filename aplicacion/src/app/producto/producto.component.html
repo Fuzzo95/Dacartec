@@ -1,0 +1,19 @@
+<mat-card *ngIf="show" style="max-width: 400px;">
+  <mat-card-header *ngIf="claim">
+    <mat-card-title>{{claim.title}}</mat-card-title>
+  </mat-card-header>
+  <img *ngIf="producto" mat-card-image src="{{producto.location}}" alt="Photo of a Shiba Inu">
+  <mat-card-content >
+    <p *ngIf="producto">
+      {{producto.description}}
+    </p>
+    <p *ngIf="claim">
+      {{claim.text}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions *ngIf="producto">
+    <button style="position: relative;left: 200px; margin: 1%" 
+    (click)="detalleProducto()"
+    mat-button>DETALLE</button>
+  </mat-card-actions>
+</mat-card>
